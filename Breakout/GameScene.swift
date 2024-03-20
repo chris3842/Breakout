@@ -9,6 +9,7 @@ import SpriteKit
 import GameplayKit
 class GameScene: SKScene {
     var ball = SKShapeNode()
+    var paddle = SKSpriteNode()
     
         override func didMove(to view:SKView) {
             //this stuff happens once(when the app opens)
@@ -61,6 +62,18 @@ class GameScene: SKScene {
         
         addChild(ball) // add ball object to view
     }
+    
+    func makePaddle() {
+        paddle.removeFromParent()
+        paddle = SKSpriteNode(color: .white, size: CGSize(width: frame.width/4, height: 20))
+        paddle.position = CGPoint(x: frame.midX, y:frame.minY + 125)
+        paddle.name = "paddle"
+        paddle.physicsBody = SKPhysicsBody(rectangleOf: paddle.size)
+        paddle.physicsBody?.isDynamic = false
+        addChild(paddle)
+    }
+    
+    func 
 }
 
 
